@@ -2,11 +2,10 @@
 <html lang=en>
   <head>
     <meta charset=utf-8>
-    <title>help me choose</title>
+    <title>Help me choose</title>
     <link href="./main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>help me choose between...</h1>
     <h1>Help me choose between...</h1>
     <div class="inputSection">
       <div class="inputs">
@@ -15,6 +14,16 @@
       <button class="addOption">Add</button>
     </div>
     <button>Go</button>
-    <img src="smiley.gif" alt="Smiley face" width="42" height="42">
+
+    $(function(){
+      $('.resultSection').hide()
+
+      var add_option = function() {
+        $('.inputs'). append ('<input></input>')
+      }
+
+      $('.addOption').click (add_option)
+    })
+    </script>
   </body>
 </html>
