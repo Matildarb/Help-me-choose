@@ -7,17 +7,16 @@
   </head>
   <body>
     <h1>Help me choose between...</h1>
-    <div>
-      <h2>Add any alternatives you want the computer to choose between</h2
-    </div>
+      <h2>Add any alternatives you want the computer to choose between</h2>
     <div class="inputSection">
       <div class="inputs">
         <input placeholder="Something"></input>
       </div>
       <button class="addOption">Add</button>
     </div>
-    <div class="resultSection"></div>
-    <button>Go</button>
+    <div class="resultSection">
+    </div>
+    <button class="submit">Go</button>
     <div>
       <img src="https://i.pinimg.com/originals/17/23/e6/1723e63b63183588e20b456d8285c11f.png">
     </div>
@@ -28,10 +27,23 @@
       $('.resultSection').hide()
 
       var add_option = function() {
-        $('.inputs'). append ('<input></input>')
+        $('.inputs').append('<input></input>')
       }
 
-      $('.addOption').click (add_option)
+      $('.addOption').click(add_option)
+
+      var options = []
+      var submit = function() {
+        $('.inputSection').hide()
+        $('.resultSection').css('display', 'flex')
+        $('input').each(function() {
+          options.push($(this).val())
+        })
+        var winner = options[Math.floor(Math.random() * options.length)]
+        console.log(winner)
+        $('.resultSection').text(winner)
+      }
+      $('.submit').click(submit)
     })
     </script>
   </body>
